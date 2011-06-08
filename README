@@ -1,1 +1,12 @@
 A PHPCodeSniffer ruleset for Sisfo projects
+
+Usage:
+# apt-get install php-codesniffer
+# apt-get install git
+
+$ cd ~
+$ git clone git@github.com:luisuribe/phpcs-sisfo.git
+$ phpcs --standard=~/phpcs-sisfo <file.php>
+
+You can create new sniffs following: http://pear.php.net/manual/en/package.php.php-codesniffer.coding-standard-tutorial.php
+but in this case we are just using existings sniffs (you're not that special)
