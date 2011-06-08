@@ -1,0 +1,4 @@
+<?xml version="1.0"?>
+<ruleset name="Sisfo PHP Coding Standard">
+    <description>A custom coding standard used in Sisfo Ltda.</description>
+</ruleset>
