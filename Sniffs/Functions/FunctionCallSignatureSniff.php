@@ -79,6 +79,9 @@ class Sisfo_Sniffs_Functions_FunctionCallSignatureSniff implements PHP_CodeSniff
 
         $closeBracket = $tokens[$openBracket]['parenthesis_closer'];
 
+        // Allow $foo = bar( $foobar )
+
+        /*
         if (($stackPtr + 1) !== $openBracket) {
             // Checking this: $value = my_function[*](...).
             $error = 'Space before opening parenthesis of function call prohibited';
@@ -92,6 +95,7 @@ class Sisfo_Sniffs_Functions_FunctionCallSignatureSniff implements PHP_CodeSniff
                 $phpcsFile->addError($error, $closeBracket, 'SpaceAfterCloseBracket');
             }
         }
+        */
 
         // Check if this is a single line or multi-line function call.
         if ($tokens[$openBracket]['line'] === $tokens[$closeBracket]['line']) {
@@ -118,11 +122,15 @@ class Sisfo_Sniffs_Functions_FunctionCallSignatureSniff implements PHP_CodeSniff
      */
     public function processSingleLineCall(PHP_CodeSniffer_File $phpcsFile, $stackPtr, $openBracket, $tokens)
     {
+
+        // Allow $foo = bar( $foobar )
+        /*
         if ($tokens[($openBracket + 1)]['code'] === T_WHITESPACE) {
             // Checking this: $value = my_function([*]...).
             $error = 'Space after opening parenthesis of function call prohibited';
             $phpcsFile->addError($error, $stackPtr, 'SpaceAfterOpenBracket');
         }
+
 
         $closer = $tokens[$openBracket]['parenthesis_closer'];
 
@@ -140,6 +148,7 @@ class Sisfo_Sniffs_Functions_FunctionCallSignatureSniff implements PHP_CodeSniff
                 $phpcsFile->addError($error, $closer, 'SpaceBeforeCloseBracket');
             }
         }
+        */
 
     }//end processSingleLineCall()
 
@@ -249,3 +258,4 @@ class Sisfo_Sniffs_Functions_FunctionCallSignatureSniff implements PHP_CodeSniff
 
 }//end class
 ?>
+
